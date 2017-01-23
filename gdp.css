@@ -4,7 +4,6 @@ body {
   background-size: cover;
 }
 
-
 .container {
   width:100%;
   text-align: center; 
@@ -27,8 +26,6 @@ svg {
     background-color: rgba(200,200,255,0.75);
     font-family: 'Petrona', serif;
 }
-
-
 
 .axis path,
 .axis line {

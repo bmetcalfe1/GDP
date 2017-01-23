@@ -33,7 +33,6 @@ var drawDataChart = function() {
     xScale2.domain(data.filter((d,i)=>{ if(i%10==0){ return true; } return false; }).map( (d) => { return d[0].substr(0,4); } ));
     yScale.domain([ 0, d3.max(data,(d)=>{ return d[1]; })]);
     
-    
 	svg.selectAll("rect")
 	.data(data)
 	.enter() 
@@ -48,14 +47,14 @@ var drawDataChart = function() {
 	        tooltip.transition().duration(400).style("opacity",0.9)
 	        tooltip.html(d[0]+"<br/>"+d[1]+" billion").style("left", (d3.event.pageX) + "px")		
 	        .style("top", (d3.event.pageY - 28) + "px");	
-	      })
+	    })
 	    .on("mouseout",(d)=>{ tooltip.transition().duration(600).style("opacity",0); })
 	    .transition()
-	                   .duration(200)
-	                   .delay((d,i)=>{ return i*10; })
-	                       .attr("fill",(d,i)=>{ if(i%2){ return "#7777BB"; } return "#9999FF"; })
-	                       .attr("y",(d)=>{ return yScale(d[1]); } )
-	                       .attr("height", (d)=>{ return Height-yScale(d[1]); } ) ;
+        	.duration(200)
+            .delay((d,i)=>{ return i*10; })
+            	.attr("fill",(d,i)=>{ if(i%2){ return "#7777BB"; } return "#9999FF"; })
+                .attr("y",(d)=>{ return yScale(d[1]); } )
+                .attr("height", (d)=>{ return Height-yScale(d[1]); } ) ;
 
 	svg.append("g")
 	  .attr("class","x axis")
@@ -78,7 +77,7 @@ var drawDataChart = function() {
 	    .attr("x", 10)
 	    .attr("dy", ".71em")
 	    .style("text-anchor", "start")
-	    .style("font-size","16px")
+	    .style("font-size","20px")
 	    .text("GDP in Billions");
 }
 
